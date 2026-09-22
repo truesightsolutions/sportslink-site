@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0E1310"/>
+  <text x="80" y="330" font-family="Rajdhani, Archivo, system-ui, sans-serif" font-weight="700"
+        font-size="132" letter-spacing="2.6" fill="#F3F6EF">SPORTSLINK</text>
+  <rect x="80" y="372" width="330" height="14" fill="#23FD0A"/>
+  <text x="80" y="450" font-family="Inter, system-ui, sans-serif" font-weight="500"
+        font-size="34" fill="rgba(243,246,239,.6)">Find a game. Settle it on the pitch.</text>
+  <text x="80" y="506" font-family="Inter, system-ui, sans-serif" font-weight="700"
+        font-size="24" letter-spacing="2.2" fill="#23FD0A">DELHI · MUMBAI · BENGALURU</text>
+</svg>

@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SportsLink — find a game, settle it on the pitch</title>
+<meta name="description" content="SportsLink is a matchmaking platform for amateur sport. Players and teams challenge each other, agree a fixture, play, and report the score blind — building verified records across ten sports.">
+<meta name="theme-color" content="#0E1310">
+<meta property="og:title" content="SportsLink">
+<meta property="og:description" content="Find a game. Settle it on the pitch. Challenges, blind score reporting and city leaderboards across ten sports.">
+<meta property="og:image" content="og.svg">
+<link rel="icon" href="og.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+  /* Dark is the default. Only an explicit light choice is restored. */
+  try { if (localStorage.getItem('sl-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+</script>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="wordmark" href="#top">SportsLink</a>
+    <nav>
+      <a href="#about">What it is</a>
+      <a href="#loop">How it works</a>
+      <a href="#challenges">Challenges</a>
+      <a href="#scores">Scores</a>
+      <a href="#ranks">Leaderboards</a>
+      <a href="#teams">Teams</a>
+      <a href="#sports">Sports</a>
+      <a href="#privacy">Your data</a>
+    </nav>
+    <button class="themebtn" id="themebtn" aria-label="Switch between dark and light">
+      <svg class="moon" data-lucide="moon" width="18" height="18"></svg>
+      <svg class="sun" data-lucide="sun" width="18" height="18"></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <svg data-lucide="menu" width="20" height="20"></svg>
+    </button>
+  </div>
+</header>
+
+<div class="navscrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Site menu">
+  <div class="dhead">
+    <span class="wordmark">SportsLink</span>
+    <button class="dclose" id="dclose" aria-label="Close menu"><svg data-lucide="x" width="20" height="20"></svg></button>
+  </div>
+  <div class="dgroup">The product</div>
+  <a href="#about">What SportsLink is</a>
+  <a href="#loop">How it works</a>
+  <a href="#sports">Sports we cover</a>
+  <div class="dgroup">Features</div>
+  <a href="#challenges">Challenges</a>
+  <a href="#scores">Blind score reporting</a>
+  <a href="#ranks">Leaderboards</a>
+  <a href="#teams">Teams</a>
+  <a href="#privacy">Your data</a>
+  <div class="dgroup">Legal</div>
+  <a href="terms.html">Terms of Service</a>
+  <a href="privacy.html">Privacy Policy</a>
+</aside>
+
+<!-- ══ opening statement ══ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="aboutgrid">
+      <div class="abouthead">
+        <p class="kicker acc" data-reveal>The short version</p>
+        <h1 class="h1" data-reveal style="--i:1">Every game you play should count for something.</h1>
+      </div>
+
+      <div class="intro">
+        <p data-reveal style="--i:2">You already play every week. Somewhere in all of it there is a real record — the wins, the losses, the opponents who are genuinely better than you. Nothing keeps it. SportsLink does.</p>
+        <p data-reveal style="--i:3">Challenge anyone in your sport. Agree a venue and a time. Play. Then you <strong>both report the score without seeing the other's</strong> — so the result is settled by the two people who were actually there, and by nobody else.</p>
+        <p data-reveal style="--i:4">Confirmed results move your points, your skill rating and your reputation. Ten sports, thirty-eight formats, every scoring rule built in.</p>
+      </div>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar" data-reveal style="--i:0">
+        <svg data-lucide="swords" width="22" height="22"></svg>
+        <h3>Challenge anyone</h3>
+        <p>No fixture secretary, no season to wait for. Pick an opponent at your level and agree the terms yourselves.</p>
+      </div>
+      <div class="pillar" data-reveal style="--i:1">
+        <svg data-lucide="eye-off" width="22" height="22"></svg>
+        <h3>Scores nobody can cook</h3>
+        <p>Blind double-entry is enforced by the platform. A result only stands when both sides independently said the same thing.</p>
+      </div>
+      <div class="pillar" data-reveal style="--i:2">
+        <svg data-lucide="chart-no-axes-column" width="22" height="22"></svg>
+        <h3>Three ways to rank</h3>
+        <p>Points for the table, an Elo rating for real strength, and a reputation score for whether you turn up and play fair.</p>
+      </div>
+      <div class="pillar" data-reveal style="--i:3">
+        <svg data-lucide="users" width="22" height="22"></svg>
+        <h3>Bring a team</h3>
+        <p>Form a side, set a kit, pick a lineup and challenge other teams — same flow, same guarantees.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ hero ══ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="kicker acc" data-reveal style="--i:0">Amateur sport, properly scored</p>
+      <h2 class="h1" data-reveal style="--i:1">Find a game.<br>Settle it on the pitch.</h2>
+      <p class="lede" data-reveal style="--i:2">SportsLink connects players and teams who want a real fixture, not a kickabout. Challenge an opponent, agree a time, turn up, and report the score — both of you, blind, so the result is one nobody can argue with.</p>
+      <div class="cta" data-reveal style="--i:3">
+        <a class="btn btn-primary" href="#loop">See how it works</a>
+        <a class="btn btn-secondary" href="#challenges">Try the deck</a>
+      </div>
+      <div class="stats" data-reveal style="--i:4">
+        <div class="stat"><b data-count="10">0</b><span class="kicker">Sports</span></div>
+        <div class="stat"><b data-count="38">0</b><span class="kicker">Formats</span></div>
+        <div class="stat"><b data-count="3">0</b><span class="kicker">Ways to rank</span></div>
+      </div>
+    </div>
+
+    <div data-reveal style="--i:2">
+      <div class="phone">
+        <div class="screen">
+          <!-- header: burger · profile switcher · bell -->
+          <div class="dashrow">
+            <svg data-lucide="menu" width="20" height="20" class="muted-ico"></svg>
+            <button class="switcher">
+              <span class="av" data-face="Arjun Mehra"></span>
+              <span>
+                <b>Arjun Mehra</b>
+                <small>Playing solo</small>
+              </span>
+              <svg data-lucide="chevron-down" width="15" height="15"></svg>
+            </button>
+            <span class="bell">
+              <svg data-lucide="bell" width="20" height="20"></svg>
+              <i></i>
+            </span>
+          </div>
+
+          <!-- sport filter chips -->
+          <div class="chiprow scrollrow">
+            <button class="chip" aria-pressed="true">All</button>
+            <button class="chip">Tennis</button>
+            <button class="chip">Squash</button>
+            <button class="chip">Football</button>
+          </div>
+
+          <!-- two stat cards -->
+          <div class="statcards">
+            <div class="statcard">
+              <span class="kicker">Form · last 5</span>
+              <div class="form5"><i class="w">W</i><i class="w">W</i><i class="l">L</i><i class="w">W</i><i class="d">D</i></div>
+            </div>
+            <div class="statcard">
+              <span class="kicker">League position</span>
+              <div class="pos">4th <small>▲ 2</small></div>
+              <div class="meta posmeta">Tennis · Singles</div>
+            </div>
+          </div>
+
+          <span class="kicker">Recent results near you</span>
+
+          <!-- activity feed card -->
+          <div class="feedcard">
+            <div class="fhead">
+              <span class="av lg" data-face="Rhea Kapoor" data-f="1"></span>
+              <div class="fmeta">
+                <div class="fname">Rhea Kapoor</div>
+                <div class="fvenue"><svg data-lucide="map-pin" width="11" height="11"></svg>Siri Fort Sports Complex</div>
+              </div>
+              <span class="tag won">Won</span>
+            </div>
+            <div class="fphoto">
+              <div class="portrait" data-face="Rhea Kapoor court" data-f="1" data-tall="1"></div>
+              <div class="fscore">
+                <div class="fsport">Tennis · Singles</div>
+                <div class="fline"><span>Rhea</span><em>2 — 1</em><span class="dim">Meera</span></div>
+              </div>
+            </div>
+            <div class="ffoot">
+              <span class="cheer"><svg data-lucide="flame" width="13" height="13"></svg>24</span>
+              <span class="fstamp">2h ago</span>
+              <span class="fview">View player</span>
+            </div>
+          </div>
+
+          <!-- bottom tab dock -->
+          <div class="dock">
+            <div class="on"><svg data-lucide="house" width="20" height="20"></svg>Home</div>
+            <div><svg data-lucide="trophy" width="20" height="20"></svg>Ranks</div>
+            <div><svg data-lucide="swords" width="20" height="20"></svg>Play</div>
+            <div><svg data-lucide="users" width="20" height="20"></svg>Teams</div>
+            <div><svg data-lucide="user-round" width="20" height="20"></svg>You</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ the loop ══ -->
+<section id="loop">
+  <div class="wrap">
+    <p class="kicker acc" data-reveal>The loop</p>
+    <h2 class="h2" data-reveal style="--i:1">Four steps, then it's on the table.</h2>
+    <p class="lede" data-reveal style="--i:2">Everything in SportsLink runs through the same cycle. No organisers, no fixtures list, no waiting for a season to start.</p>
+
+    <div class="loop">
+      <div class="step" data-reveal style="--i:0">
+        <div class="num">1</div>
+        <div>
+          <h3 class="h3">Challenge</h3>
+          <p class="meta">Swipe through players in your sport and area. Send up to two proposals at once — venue, date and time.</p>
+        </div>
+      </div>
+      <div class="step" data-reveal style="--i:1">
+        <div class="num">2</div>
+        <div>
+          <h3 class="h3">Agree</h3>
+          <p class="meta">They accept, counter, or let it lapse. Two counters a side, then the clock decides.</p>
+        </div>
+      </div>
+      <div class="step" data-reveal style="--i:2">
+        <div class="num">3</div>
+        <div>
+          <h3 class="h3">Play</h3>
+          <p class="meta">Both sides confirm on match day. Kits are picked in advance so nobody turns up in clashing colours.</p>
+        </div>
+      </div>
+      <div class="step" data-reveal style="--i:3">
+        <div class="num">4</div>
+        <div>
+          <h3 class="h3">Report</h3>
+          <p class="meta">You each submit the score without seeing the other's. Agreement confirms it and moves the table.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ swipe deck ══ -->
+<section id="challenges" class="banded">
+  <div class="wrap split">
+    <div>
+      <p class="kicker acc" data-reveal>Challenges</p>
+      <h2 class="h2" data-reveal style="--i:1">One card at a time.</h2>
+      <p class="lede" data-reveal style="--i:2">Open challenges arrive as a deck. Drag right to open a proposal, left to move on — or use the buttons. Every card carries the record that matters: played, won, drawn, lost.</p>
+      <ul class="lede bullets" data-reveal style="--i:3">
+        <li>Only open challenges enter the deck — countered and accepted ones never appear.</li>
+        <li>Switch identity to challenge as yourself or as any team you administer.</li>
+        <li>Counters are capped at two a side, so a negotiation cannot run forever.</li>
+      </ul>
+      <p class="fine" data-reveal style="--i:4">This deck is live — drag it. In the app a right-swipe opens the proposal screen for that player.</p>
+    </div>
+
+    <div data-reveal style="--i:2">
+      <div class="deckwrap" id="deck">
+        <div class="deckempty">
+          <div>
+            <svg data-lucide="check-check" width="30" height="30" class="acc-ico"></svg>
+            <h3 class="h3">Deck cleared. Nice work.</h3>
+            <p class="meta">Reset to run through it again.</p>
+            <button class="btn btn-secondary" id="deckreset">Reset deck</button>
+          </div>
+        </div>
+      </div>
+      <div class="deckbtns">
+        <button class="circ rejectc" id="deckno" aria-label="Reject challenge"><svg data-lucide="x" width="24" height="24"></svg></button>
+        <button class="circ sm" id="deckcounter" aria-label="Counter-propose"><svg data-lucide="repeat" width="18" height="18"></svg></button>
+        <button class="circ acceptc" id="deckyes" aria-label="Accept challenge"><svg data-lucide="check" width="24" height="24"></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ blind double entry ══ -->
+<section id="scores" class="blind">
+  <div class="blindtrack">
+    <div class="blindstick">
+      <div class="wrap" id="blindbox" data-state="0">
+        <p class="kicker acc">Blind double-entry</p>
+        <h2 class="h2">Neither of you sees the other's score.</h2>
+        <p class="lede">Scroll to walk the resolution. Both sides submit in the dark; the reveal is a platform rule, not a matter of manners.</p>
+
+        <div class="progdots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+        <div class="cards2">
+          <div class="scard">
+            <div class="who"><span class="av sm" data-face="Arjun Mehra"></span><div><div class="whoname">You</div><div class="meta">Arjun Mehra</div></div></div>
+            <span class="kicker">Games won per set</span>
+            <div class="setgrid"><div class="box">6</div><div class="box">4</div><div class="box">6</div></div>
+          </div>
+          <div class="scard">
+            <div class="who"><span class="av sm" data-face="Sanya Desai" data-f="1"></span><div><div class="whoname">Sanya Desai</div><div class="meta">Opponent</div></div></div>
+            <span class="kicker">Games won per set</span>
+            <div class="setgrid" id="oppgrid"><div class="box hidden">4</div><div class="box hidden">6</div><div class="box hidden">3</div></div>
+          </div>
+        </div>
+
+        <div class="blindstates">
+          <div class="blindstate-banner bs0">
+            <svg data-lucide="eye-off" width="22" height="22" class="i-muted"></svg>
+            <div><b>Both entering</b><p class="meta">Sanya won't see your score until she has submitted hers. Neither of you can copy the other.</p></div>
+          </div>
+          <div class="blindstate-banner bs1">
+            <svg data-lucide="hourglass" width="22" height="22" class="i-warn"></svg>
+            <div><b>Score sent. Waiting on Sanya.</b>
+              <div class="statusdot"><i class="filled"></i> You submitted · 18:42</div>
+              <div class="statusdot"><i class="hollow"></i> Sanya hasn't submitted yet · Reminder sent</div>
+            </div>
+          </div>
+          <div class="blindstate-banner bs2">
+            <svg data-lucide="scale" width="22" height="22" class="i-bad"></svg>
+            <div><b>Your scores don't match</b><p class="meta">You both submit fresh so nobody anchors on the other. One resubmission each — if they still disagree the match is recorded as played with no result, and you both keep the turn-up point.</p></div>
+          </div>
+          <div class="blindstate-banner bs3">
+            <svg data-lucide="trophy" width="22" height="22" class="i-ok"></svg>
+            <div><b>You won 2–1</b><p class="meta">Both reports agreed, so the result is final. +4 points — one for turning up, three for the win — and you move up to 9th in your division.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ leaderboard ══ -->
+<section id="ranks" class="banded">
+  <div class="wrap">
+    <p class="kicker acc" data-reveal>Leaderboards</p>
+    <h2 class="h2" data-reveal style="--i:1">Every match moves the table.</h2>
+    <p class="lede" data-reveal style="--i:2">A division is one sport in one area. Pick a pair and the table re-ranks. Points are one for turning up plus the sport's own win, draw and loss values.</p>
+
+    <div class="boardctl" data-reveal style="--i:3">
+      <div class="chiprow scrollrow" id="boardsports" role="group" aria-label="Sport"></div>
+      <div class="chiprow scrollrow" id="boardcities" role="group" aria-label="Area"></div>
+    </div>
+
+    <div class="board" data-reveal style="--i:4">
+      <div class="bhead"><span>#</span><span></span><span>Player</span><span class="c">MP</span><span class="c">W</span><span class="c">L</span><span class="r">Pts</span></div>
+      <div id="boardrows"></div>
+      <p class="boardfoot" id="boardcount"></p>
+    </div>
+    <p class="fine" data-reveal style="--i:5">Ranked on points, then win difference, then wins — standard competition ranking, so a tie shares a place and the next place is skipped. Your own row carries a faint accent wash.</p>
+  </div>
+</section>
+
+<!-- ══ teams ══ -->
+<section id="teams">
+  <div class="wrap split">
+    <div data-reveal>
+      <div class="phone">
+        <div class="screen">
+          <div class="dashrow">
+            <svg data-lucide="chevron-left" width="20" height="20"></svg>
+            <div class="navtitle">Koramangala Kings</div>
+            <svg data-lucide="menu" width="20" height="20"></svg>
+          </div>
+
+          <div class="teamhero">
+            <span class="teamcrest" data-crest="Koramangala Kings" data-home="#1D4ED8" data-away="#F3F6EF"></span>
+            <div>
+              <div class="teamname">Koramangala Kings</div>
+              <div class="meta">Football · 7v7 · 14 members</div>
+              <div class="meta admintag">You are a team admin</div>
+            </div>
+          </div>
+
+          <div class="statcards three">
+            <div class="statcard"><span class="kicker">Played</span><div class="pos">18</div></div>
+            <div class="statcard"><span class="kicker">Won</span><div class="pos">12</div></div>
+            <div class="statcard"><span class="kicker">Rated</span><div class="pos">1614</div></div>
+          </div>
+
+          <span class="kicker">Kit</span>
+          <div class="kits">
+            <div class="kit"><i style="background:#1D4ED8"></i><div><div class="kitrole">Home</div><div class="meta">Blue</div></div></div>
+            <div class="kit"><i style="background:#F3F6EF"></i><div><div class="kitrole">Away</div><div class="meta">White</div></div></div>
+          </div>
+
+          <div class="tiles">
+            <div class="tile"><svg data-lucide="users" width="20" height="20"></svg>Roster</div>
+            <div class="tile"><svg data-lucide="message-square" width="20" height="20"></svg>Chat</div>
+            <div class="tile"><svg data-lucide="clipboard-list" width="20" height="20"></svg>Tactics</div>
+          </div>
+
+          <div class="dock">
+            <div><svg data-lucide="house" width="20" height="20"></svg>Home</div>
+            <div><svg data-lucide="trophy" width="20" height="20"></svg>Ranks</div>
+            <div><svg data-lucide="swords" width="20" height="20"></svg>Play</div>
+            <div class="on"><svg data-lucide="users" width="20" height="20"></svg>Teams</div>
+            <div><svg data-lucide="user-round" width="20" height="20"></svg>You</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="kicker acc" data-reveal>Teams</p>
+      <h2 class="h2" data-reveal style="--i:1">Play as a side, score as one.</h2>
+      <p class="lede" data-reveal style="--i:2">Any player can start a team. Admins set the kit, pick the lineup and act on the team's behalf — the challenge flow is the same one you already know.</p>
+
+      <div class="notecards">
+        <div class="card" data-reveal style="--i:3">
+          <h3 class="h3">The team takes the points</h3>
+          <p class="meta">A win pays the team's row, not the eleven individual rows. Team results never distort a player's own record.</p>
+        </div>
+        <div class="card" data-reveal style="--i:4">
+          <h3 class="h3">Players take a turn-out point</h3>
+          <p class="meta">Everyone in the lineup earns a flat +1 for showing up — win, lose or draw. No individual W/D/L from a team match.</p>
+        </div>
+        <div class="card" data-reveal style="--i:5">
+          <h3 class="h3">Skill rating still moves</h3>
+          <p class="meta">A team match shifts each player's own rating against the opposing lineup's mean, frozen before anything updates. A different ladder, not a contradiction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ sports ══ -->
+<section id="sports" class="banded">
+  <div class="wrap">
+    <p class="kicker acc" data-reveal>Catalog</p>
+    <h2 class="h2" data-reveal style="--i:1">Ten sports. Thirty-eight formats.</h2>
+    <p class="lede" data-reveal style="--i:2">A sport is a row in a table, not a branch in the code. Its formats, scoring mode and points all come from that row — so adding one never ships an app update.</p>
+    <div class="sportgrid" id="sportgrid"></div>
+  </div>
+</section>
+
+<!-- ══ feature strip ══ -->
+<section>
+  <div class="wrap">
+    <p class="kicker acc" data-reveal>Under the hood</p>
+    <h2 class="h2" data-reveal style="--i:1">The parts that keep it honest.</h2>
+    <div class="feats">
+      <div class="feat" data-reveal style="--i:0">
+        <svg data-lucide="trending-up" width="22" height="22"></svg>
+        <h3>Skill rating</h3>
+        <p>An Elo ladder separate from points. Everyone starts at 1000, K falls as you play, and you stay provisional until five games are in.</p>
+      </div>
+      <div class="feat" data-reveal style="--i:1">
+        <svg data-lucide="star" width="22" height="22"></svg>
+        <h3>Reputation</h3>
+        <p>Rate each other after the match; ratings stay private until both sides have submitted. Upheld conduct reports cost ten points each.</p>
+      </div>
+      <div class="feat" data-reveal style="--i:2">
+        <svg data-lucide="bell-ring" width="22" height="22"></svg>
+        <h3>Notifications</h3>
+        <p>Thirty-two events, seven categories you control. Quiet hours hold anything non-urgent overnight.</p>
+      </div>
+      <div class="feat" data-reveal style="--i:3">
+        <svg data-lucide="calendar-days" width="22" height="22"></svg>
+        <h3>Calendar</h3>
+        <p>Every confirmed fixture, unconfirmed proposal and played match on one month grid, filterable down to a single day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ data protection ══ -->
+<section id="privacy" class="banded">
+  <div class="wrap">
+    <p class="kicker acc" data-reveal>Your data</p>
+    <h2 class="h2" data-reveal style="--i:1">What we show, and what we never will.</h2>
+    <p class="lede" data-reveal style="--i:2">A competitive record only works if people are willing to put their real results on it. That means being exact about what other players can see — and what stays yours.</p>
+
+    <div class="privgrid">
+      <div class="privcol" data-reveal style="--i:0">
+        <div class="privhead"><svg data-lucide="eye" width="18" height="18"></svg><span>Other players see</span></div>
+        <ul class="privlist visible">
+          <li>Your name and profile photo</li>
+          <li>Your city, preferred sports and usual venue</li>
+          <li>Your results, standings and skill rating</li>
+          <li>Your reputation score</li>
+          <li>How far away you are, in whole kilometres</li>
+        </ul>
+      </div>
+
+      <div class="privcol" data-reveal style="--i:1">
+        <div class="privhead"><svg data-lucide="eye-off" width="18" height="18"></svg><span>They never see</span></div>
+        <ul class="privlist hiddenlist">
+          <li>Your date of birth</li>
+          <li>Your home address or exact location</li>
+          <li>Your email address</li>
+          <li>Your score until they have submitted theirs</li>
+          <li>Any report you file — those go to moderators only</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feats privfeats">
+      <div class="feat" data-reveal style="--i:0">
+        <svg data-lucide="lock" width="22" height="22"></svg>
+        <h3>Blind by design</h3>
+        <p>Your score is withheld by the server, not by the app being polite. There is no request that returns your opponent's number before they have entered it.</p>
+      </div>
+      <div class="feat" data-reveal style="--i:1">
+        <svg data-lucide="star-off" width="22" height="22"></svg>
+        <h3>Ratings stay sealed</h3>
+        <p>The stars you give an opponent stay private until you have both rated each other, so nobody can trade a good rating for a good one back.</p>
+      </div>
+      <div class="feat" data-reveal style="--i:2">
+        <svg data-lucide="message-square-x" width="22" height="22"></svg>
+        <h3>Chat is temporary</h3>
+        <p>Messages exist only while a challenge is open, and notifications are cleared after thirty days. Neither sticks around once it has done its job.</p>
+      </div>
+      <div class="feat" data-reveal style="--i:3">
+        <svg data-lucide="user-round-x" width="22" height="22"></svg>
+        <h3>Leaving is clean</h3>
+        <p>Delete your account in Settings and your personal details are erased. Past matches stay on your opponents' records, credited to "Deleted player".</p>
+      </div>
+    </div>
+
+    <p class="fine privfine" data-reveal style="--i:4">SportsLink does not sell your data. It is handled by the providers that run the service — the database and sign-in, push notifications, and turning your address into an approximate map location. The full detail is in the <a href="privacy.html">Privacy Policy</a>.</p>
+  </div>
+</section>
+
+<!-- ══ cta ══ -->
+<section class="cta-band">
+  <div class="wrap">
+    <p class="kicker acc" data-reveal>Coming soon</p>
+    <h2 class="h2" data-reveal style="--i:1">Bring your own opponents.</h2>
+    <p class="lede centred" data-reveal style="--i:2">SportsLink launches on iOS and Android. Wherever you already play, the ladder follows.</p>
+    <div class="btns" data-reveal style="--i:3">
+      <button class="btn btn-primary" disabled>App Store</button>
+      <button class="btn btn-secondary" disabled>Google Play</button>
+    </div>
+    <p class="fine" data-reveal style="--i:4">Not yet released. The store listings go live with the first public build.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark small" href="#top">SportsLink</a>
+    <nav>
+      <a href="#about">What it is</a>
+      <a href="#loop">How it works</a>
+      <a href="#ranks">Leaderboards</a>
+      <a href="#sports">Sports</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+    <p class="disc">Every name, team, crest, face and score on this page is fictional demo data, and every portrait is an illustration rather than a photograph. SportsLink is in development.</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@0.441.0/dist/umd/lucide.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
