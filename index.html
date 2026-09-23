@@ -286,9 +286,18 @@
       <div class="wrap" id="blindbox" data-state="0">
         <p class="kicker acc">Blind double-entry</p>
         <h2 class="h2">Neither of you sees the other's score.</h2>
-        <p class="lede">Scroll to walk the resolution. Both sides submit in the dark; the reveal is a platform rule, not a matter of manners.</p>
+        <p class="lede">Scroll or tap through the resolution. Both sides submit in the dark; the reveal is a platform rule, not a matter of manners.</p>
 
-        <div class="progdots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="steps">
+          <button class="stepbtn" id="stepPrev" type="button" aria-label="Previous step"><svg data-lucide="chevron-left" width="18" height="18"></svg></button>
+          <div class="progdots">
+            <button class="dotbtn" type="button" aria-label="Step 1: both entering"><i></i></button>
+            <button class="dotbtn" type="button" aria-label="Step 2: waiting on opponent"><i></i></button>
+            <button class="dotbtn" type="button" aria-label="Step 3: scores don't match"><i></i></button>
+            <button class="dotbtn" type="button" aria-label="Step 4: result confirmed"><i></i></button>
+          </div>
+          <button class="stepbtn" id="stepNext" type="button" aria-label="Next step"><svg data-lucide="chevron-right" width="18" height="18"></svg></button>
+        </div>
 
         <div class="cards2">
           <div class="scard">

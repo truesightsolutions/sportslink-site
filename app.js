@@ -359,25 +359,45 @@
     const track = $('.blindtrack'), box = $('#blindbox'), opp = $('#oppgrid');
     if (!track || !box) return;
     const boxes = $$('.box', opp);
-    let queued = false;
+    const dots = $$('.dotbtn', box);
+    const prevBtn = $('#stepPrev', box), nextBtn = $('#stepNext', box);
+    const STATES = 4;
+    // Below this width the section drops out of the sticky scroll-scrub
+    // (see style.css) because tall content there would otherwise hide below
+    // the fold with no way to scroll it into view. Taps drive it instead.
+    const mq = matchMedia('(max-width: 760px)');
 
-    function apply() {
+    function setState(n) {
+      n = Math.max(0, Math.min(STATES - 1, n));
+      box.dataset.state = n;
+      // The opponent's numbers stay hidden until the match is confirmed.
+      boxes.forEach(b => b.classList.toggle('hidden', n < 3));
+      dots.forEach((d, i) => d.classList.toggle('done', i <= n));
+      if (prevBtn) prevBtn.disabled = n === 0;
+      if (nextBtn) nextBtn.disabled = n === STATES - 1;
+    }
+
+    dots.forEach((d, i) => d.addEventListener('click', () => setState(i)));
+    if (prevBtn) prevBtn.addEventListener('click', () => setState(+box.dataset.state - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => setState(+box.dataset.state + 1));
+
+    let queued = false;
+    function scrollDriven() {
       queued = false;
       const r = track.getBoundingClientRect();
       const span = r.height - innerHeight;
       const p = span <= 0 ? 0 : Math.min(Math.max(-r.top / span, 0), 1);
-      const state = Math.min(Math.floor(p * 4), 3);
-      if (box.dataset.state !== String(state)) box.dataset.state = state;
-      // The opponent's numbers stay hidden until the match is confirmed.
-      boxes.forEach(b => b.classList.toggle('hidden', state < 3));
+      setState(Math.min(Math.floor(p * STATES), STATES - 1));
     }
     addEventListener('scroll', () => {
-      if (queued) return;
+      if (queued || mq.matches) return;
       queued = true;
-      requestAnimationFrame(apply);
+      requestAnimationFrame(scrollDriven);
     }, { passive: true });
-    addEventListener('resize', apply, { passive: true });
-    apply();
+    addEventListener('resize', () => { if (!mq.matches) scrollDriven(); }, { passive: true });
+
+    setState(0);
+    if (!mq.matches) scrollDriven();
   }
 
   /* ═══ 5. leaderboard ════════════════════════════════════════════ */
