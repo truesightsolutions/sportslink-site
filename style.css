@@ -1284,3 +1284,9 @@ footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
 .about { border-bottom: 1px solid var(--line); padding-top: 72px; }
 .about .intro p:first-of-type { font-size: 19px; line-height: 1.5; color: var(--ink); }
 .hero { padding-top: 64px; }
+
+/* Legal documents generated from docs/legal/*.md */
+.legal section ul { margin-top: 10px; padding-left: 20px; }
+.legal section li { font-size: 15px; line-height: 1.62; color: var(--muted); margin-top: 6px; }
+.legal section strong { color: var(--ink); font-weight: 600; }
+.legal section a { color: var(--acctext, inherit); text-decoration: underline; text-underline-offset: 2px; word-break: break-word; }
